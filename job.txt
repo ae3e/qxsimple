@@ -24,7 +24,7 @@ Use the config.json file from qooxdoo framework.
             "resource": "http://adeliz.github.io/qxsimple/${QOOXDOO_VERSION}/resource"
         },
         "paths": {
-            "file": "${QOOXDOO_VERSION}/script/qxsimple_${QOOXDOO_VERSION}.js",
+            "file": "${QOOXDOO_VERSION}/script/qxsimple.js",
             "app-root": "./${QOOXDOO_VERSION}"
         },
         "code": {
@@ -62,7 +62,7 @@ Use the config.json file from qooxdoo framework.
 
     "compile-options": {
         "paths": {
-            "file": "qxsimple_${QOOXDOO_VERSION}/script/qxsimple_${QOOXDOO_VERSION}.js",
+            "file": "qxsimple_${QOOXDOO_VERSION}/script/qxsimple.js",
             "app-root": "./qxsimple_${QOOXDOO_VERSION}",
             "gzip": true
         },
