@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Qooxoo inline app example" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-48269251-1', 'qxskope.appspot.com');
+	  ga('send', 'pageview');
+	
+	</script>
+  
+</head>
+<body style="margin:50px">
+   <div id="container">
+   <h1>Inline application</h1>
+   <h3>Uses the Page root to build traditional web page based application which are embedded into isles in the classic HTML page.</h3><br>
+  <div id="text-content" style="font-size:16px;line-height:24px">
+    To, hi. Cogo plane res, at. Mucro ligo Erigo vos orca tui Loco Trellum, ac. Procedo nec luo Hic in Potens. Qua, qua crur Auctor, se. Aveho Tertius, eo. Eia Acerbus orexis, at. Ars, to. Vae atrer Exitus Nam, si. Per fuga Desumo laus, ut. Quin ita suavis Digladio non, ne me pax altor bona res hoc species, vis Quod funis vis fio Carceres labo ius Notabilis Ac sto via orbus Viriliter at res etiam Lepor vis emo pluma iuro, in edo sis sem qua, ex nec nam boatus inaestimabilis mica, peto for infelix ut Ico lex Nequaquam litigo fas alces In lavo vir hec, lev.l prevarication praetermissio.
+    <div id="isle"></div>
+    per in arx persisto Conculco Vere to aut in, via Remitto, solum casso hic at vis series, to. Doxa In, revello en Propitius. Nec vas forfex dies Quid eo omnipotens, eo. Seu his ex cui hic Exorsus, ivi sed bos Secus an tam Inibi conor his Laxo crepusculum, de. Luo vis enim ne, hi. Rigor ars Veho ficus ruo neque, os duo rigor Sum better) exeo. Beo, suo Sal sectator, dicto edo pilus Repo. Ne, an mel nitor Lex edoctus ante sis hic Fides. Sic tum pes Facio Ius penitus. No, sus os lemma Familia. Mire hae opus Nam pro sis Renuo optatus census. Adhuc censeo Cruentus, at. Ligo amnis opus tam ops is do Vietus spurcus, os ictus eu quis non tui Plures per, no. Uter Qui surgo, os. Nascor Abrogo Ius, et. Via adeo hic, sui Curo ius Non, re. Garrio vena, ex. Plango fas permeo Expilatio ut indo tero, re. Ver esse armo Fio puto orca maneo Trado ita, os. Etiam te reus alma cur Desolo, St. Hic se rebello se distinguo si stupeo tam dum Diruo. Sicut de umquam res neo recubo Vicarius faveo Nam castellanus lex Domus, me. Ne is en altilis no ubi et Senium ater quibus, ut.
+  </div>
+  </div>
+  
+  <script type="text/javascript" src="http://qxskope.appspot.com/qxsimple/4.0.1/script/qxsimple.js"></script>
+  <script>
+qx.core.Environment.add("qx.application","qxsimple.Application");        
+qx.Class.define("qxsimple.Application",
+{
+  extend : qx.application.Inline,
+
+  members :
+  {
+    main: function()
+    {
+      this.base(arguments);
+
+      var isle = new qx.ui.root.Inline(document.getElementById("isle"), true, false).set({
+        //decorator: "main",
+        padding: 10,
+        //textColor: "black",
+        backgroundColor: "white"
+      });
+      isle.setLayout(new qx.ui.layout.Canvas());
+
+      var tabView = new qx.ui.tabview.TabView();
+
+      //tabView.setWidth(600);
+      tabView.setHeight(200);
+
+
+      ////////////////// TEST PAGE 1 ////////////////////
+      var page1 = new qx.ui.tabview.Page("Favorites", "../img/glyphicons_012_heart.png");
+      page1.setLayout(new qx.ui.layout.VBox());
+      page1.add(new qx.ui.basic.Label("Layout-Settings"));
+      tabView.add(page1);
+
+
+
+      ////////////////// TEST PAGE 2 ////////////////////
+      var page2 = new qx.ui.tabview.Page("Cold", "../img/glyphicons_021_snowflake.png");
+      page2.setLayout(new qx.ui.layout.VBox());
+      page2.add(new qx.ui.basic.Label("Notes..."));
+      tabView.add(page2);
+
+
+      ////////////////// TEST PAGE 3 ////////////////////
+      var page3 = new qx.ui.tabview.Page("Hot", "../img/glyphicons_022_fire.png");
+      page3.setLayout(new qx.ui.layout.VBox());
+      page3.add(new qx.ui.basic.Label("Calculator..."));
+      tabView.add(page3);
+
+
+      ////////////////// TEST PAGE 4 ////////////////////
+      var page4 = new qx.ui.tabview.Page("Music", "../img/glyphicons_018_note.png");
+      page4.setLayout(new qx.ui.layout.VBox());
+      page4.add(new qx.ui.basic.Label("Help..."));
+      tabView.add(page4);
+
+
+      isle.add(tabView,{edge:0});
+
+
+      //isle.setLayout(new qx.ui.layout.HBox());
+    }
+  }
+});
+  </script>
+</body>
+</html>

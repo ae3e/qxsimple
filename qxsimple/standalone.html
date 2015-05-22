@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48269251-1', 'qxskope.appspot.com');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="http://qxskope.appspot.com/qxsimple/4.0.1/script/qxsimple.js"></script>
+<script type="text/javascript">
+
+qx.core.Environment.add("qx.application","qxsimple.Application");        
+qx.Class.define("qxsimple.Application",
+{
+		extend : qx.application.Standalone,
+
+		members : {
+			main : function() {
+				this.base(arguments);
+
+				//set theme
+				qx.theme.manager.Meta.getInstance().setTheme(qx.theme.Indigo);
+
+				//create the main container
+				var workbench = new qx.ui.container.Composite();
+
+				var layout = new qx.ui.layout.VBox;
+				layout.setSeparator("separator-vertical");
+				workbench.setLayout(layout);
+
+				//Create the header of the application
+				var header = new qx.ui.container.Composite(
+						new qx.ui.layout.HBox());
+				header.setAppearance("app-header");
+				var title = new qx.ui.basic.Label("Standalone application");
+
+				var version = new qx.ui.basic.Label("Version 2.1");
+				version.setFont("default");
+
+				header.add(title);
+				header.add(new qx.ui.core.Spacer, {
+					flex : 1
+				});
+				header.add(version);
+
+				workbench.add(header);
+
+				//Create the split pane
+				var pane = new qx.ui.splitpane.Pane("horizontal").set({
+					margin:5
+				});
+				workbench.add(pane, {
+					flex : 1
+				});
+
+				//Create the tree
+				var tree = new qx.ui.tree.Tree().set({
+					width:300,
+					decorator:"main"
+				})
+
+				var root = new qx.ui.tree.TreeFolder("root");
+				root.setOpen(true);
+				tree.setRoot(root);
+
+				var te1 = new qx.ui.tree.TreeFolder("Desktop");
+				te1.setOpen(true);
+				te1.setIcon("icon/22/places/user-desktop.png");
+				root.add(te1);
+
+				var te1_1 = new qx.ui.tree.TreeFolder("Files");
+				var te1_2 = new qx.ui.tree.TreeFolder("Workspace");
+				var te1_3 = new qx.ui.tree.TreeFolder("Network");
+				var te1_4 = new qx.ui.tree.TreeFolder("Trash");
+				te1.add(te1_1, te1_2, te1_3, te1_4);
+
+				var te1_2_1 = new qx.ui.tree.TreeFile("Windows (C:)");
+				var te1_2_2 = new qx.ui.tree.TreeFile("Documents (D:)");
+				te1_2.add(te1_2_1, te1_2_2);
+
+				var te2 = new qx.ui.tree.TreeFolder("Inbox");
+
+				var te2_1 = new qx.ui.tree.TreeFolder("Presets");
+				var te2_2 = new qx.ui.tree.TreeFolder("Sent");
+				var te2_3 = new qx.ui.tree.TreeFolder("Trash");
+
+				for ( var i = 0; i < 30; i++) {
+					te2_3.add(new qx.ui.tree.TreeFile("Junk #" + i));
+				}
+
+				var te2_4 = new qx.ui.tree.TreeFolder("Data");
+				var te2_5 = new qx.ui.tree.TreeFolder("Edit");
+
+				te2.add(te2_1, te2_2, te2_3, te2_4, te2_5);
+
+				root.add(te2);
+
+				pane.add(tree, 0);
+
+				//Create the canvas
+				var canvas = new qx.ui.embed.Canvas().set({
+					canvasWidth: 200,
+				  canvasHeight: 200,
+				  syncDimension: true
+				});
+				canvas.setDecorator("main");
+
+				canvas.addListener("redraw", function(e) {
+					var data = e.getData();
+					var width = data.width;
+					var height = data.height;
+					var ctx = data.context;
+
+					ctx.fillStyle = "rgb(200,0,0)";
+					ctx.fillRect(100, 100,130, 130);
+
+					ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+					ctx.fillRect(70, 70, 105, 100);
+				}, this);
+				pane.add(canvas, 1);
+
+				this.getRoot().add(workbench, {
+					edge : 0
+				});
+			}
+		}
+	});
+</script>
+</head>
+</html>

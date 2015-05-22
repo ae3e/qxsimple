@@ -1,0 +1,184 @@
+
+<!DOCTYPE HTML >
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>qxSKOPE</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <!--  <link rel="stylesheet" href="css/mycss.css">-->
+	<!-- Latest compiled and minified JavaScript -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-48269251-1', 'qxskope.appspot.com');
+	  ga('send', 'pageview');
+	
+	</script>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<css>
+		.container{
+		  margin: 20px 0;
+		}
+	</css>
+  </head>
+
+  <body>
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">qxSIMPLE</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li> -->
+          </ul>
+          <!-- <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="qxsimple.html">qxSIMPLE</a></li>
+            <li><a href="qxmap.html">qxMAP</a></li>
+            <li><a href="qxchart.html">qxCHART</a></li>
+          </ul> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	
+    <div class="container">
+        <!-- <div class="page-header">
+        	<br>
+          <h2>qxSIMPLE</h2>
+        </div>  -->
+        <br><br><br>
+        <p class="lead">The <a href="http://qooxdoo.org/" target="_blank"> qooxdoo</a> javascript framework all-in-one package.</p>
+        qxSIMPLE is the simplest way to use qooxdoo without installing python and without using the qooxdoo toolchain that can be difficult for beginners.<br>
+        It is a complete pre-build qooxdoo release that can be use for testing, prototyping or learning purposes.<br>
+        If you're looking for an optimized application, please use the <a href="http://manual.qooxdoo.org/current/pages/tool.html"> Qooxdoo SDK</a>.
+        <br>
+        <br>
+        <h3>Installation</h3>
+        
+        <a href="qxsimple/qxsimpleVersion/qxsimple_qxsimpleVersion.zip" class="btn btn-primary" role="button">Download qxSIMPLE qxsimpleVersion</a> or include <code>http://qxskope.appspot.com/qxsimple/qxsimpleVersion/script/qxsimple.js</code> in your html code <br> 
+        <br>
+        <h3>Basic example</h3>
+        Include the following line in your html code :
+        <pre><span style="color:#03c">&lt;<span style="font-weight:700">script</span> <span style="color:#36c;font-style:italic">type</span>=<span style="color:#093">"text/javascript"</span> <span style="color:#36c;font-style:italic">src</span>=<span style="color:#093">"http://qxskope.appspot.com/qxsimple/qxsimpleVersion/script/qxsimple.js"</span>>&lt;/<span style="font-weight:700">script</span>></span></pre>
+        then declare your main application class :
+        <pre>qx.core.Environment.<span style="color:#33f;font-weight:700">add</span>(<span style="color:#093">"qx.application"</span>,<span style="color:#093">"qxsimple.Application"</span>);</pre>
+        You're ready to start coding! Here is the full example (<a href="qxsimple/basic.html">Run it!</a>):
+        <pre><span style="color:#03c">&lt;!<span style="color:#03c"><span style="font-weight:700">DOCTYPE</span> html</span>></span>
+<span style="color:#03c">&lt;<span style="font-weight:700">html</span>></span>
+<span style="color:#03c">&lt;<span style="font-weight:700">head</span>></span>
+    &lt;<span style="font-weight:700">script</span> <span style="color:#36c;font-style:italic">type</span>=<span style="color:#093">"text/javascript"</span> <span style="color:#36c;font-style:italic">src</span>=<span style="color:#093">"http://qxskope.appspot.com/qxsimple/qxsimpleVersion/script/qxsimple.js"</span>>&lt;/<span style="font-weight:700">script</span>>
+    &lt;<span style="font-weight:700">script</span> <span style="color:#36c;font-style:italic">type</span>=<span style="color:#093">"text/javascript"</span>>
+        <span style="color:#06f;font-style:italic">//declare your main class name</span>
+        qx.core.Environment.<span style="color:#33f;font-weight:700">add</span>(<span style="color:#093">"qx.application"</span>,<span style="color:#093">"qxsimple.Application"</span>);
+        
+        <span style="color:#06f;font-style:italic">//write your main class</span>
+        qx.Class.define(<span style="color:#093">"qxsimple.Application"</span>,{
+          extend : qx.application.Standalone,
+
+          members :
+          {
+            <span style="color:#ff8000">main</span>: <span style="font-weight:700">function</span>()
+            {
+              this.base(arguments);
+
+                <span style="color:#06f;font-style:italic">//create a button</span>
+                <span style="font-weight:700">var</span> btn1 <span style="color:#00f">=</span> <span style="color:#00f">new</span> <span style="">qx.ui</span>.<span style="color:#6782d3">form</span>.<span style="color:#33f;font-weight:700">Button</span>(<span style="color:#093">"Button A"</span>, <span style="color:#093">"../img/glyphicons_free/glyphicons/png/glyphicons_003_user.png"</span>);
+               <span style="color:#06f;font-style:italic">//add a listener on execution</span>
+                btn1.addListener(<span style="color:#093">"execute"</span>,<span style="font-weight:700">function</span>(e){
+                    <span style="color:#33f;font-weight:700">alert</span>(<span style="color:#093">"Hello!"</span>);
+                });
+                <span style="color:#06f;font-style:italic">//add it to the application root</span>
+                this.getRoot().<span style="color:#33f;font-weight:700">add</span>(btn1, {left:<span style="color:#06f">100</span>,top:<span style="color:#06f">100</span>});
+            }
+          }
+        });
+    &lt;/<span style="font-weight:700">script</span>>
+<span style="color:#03c">&lt;/<span style="font-weight:700">head</span>></span>
+<span style="color:#03c">&lt;/<span style="font-weight:700">html</span>></span>
+</pre>
+        
+        <br>
+        <h3>Advanced example</h3>
+        If you want to split your application code in multiple files, you can use the html file
+        
+        <br>
+        <h3>Theming</h3>
+        To change the theme of your application, just add the following code at the beginning of the main function in your application class.
+        <pre><span style="color:#21439c">main</span>: <span style="color:#ff5600">function</span>()
+    {
+        <span style="color:#0053ff;font-weight:700">this</span>.base(arguments);
+        <span style="color:#af82d4">//set theme</span>
+	<b>qx.theme.manager.Meta.getInstance().setTheme(qx.theme.Indigo);</b>
+        <span style="color:#af82d4">//add your code here</span>
+    }
+</pre>
+        There's 4 available themes : <b>Indigo</b>, <b>Modern</b>, <b>Simple</b> and <b>Classic</b><br><br>
+        <div class="row">
+		  <div class="col-xs-6" align="center"><img src="img/theme_indigo.png"></div>
+		  <div class="col-xs-6" align="center"><img src="img/theme_modern.png"></div>
+		</div>
+		<div class="row">
+		  <div class="col-xs-6" align="center"><img src="img/theme_simple.png"></div>
+		  <div class="col-xs-6" align="center"><img src="img/theme_classic.png"></div>
+		</div>
+        <br><br>
+        <h3>Standalone or inline applications</h3>
+        There are different applications which can be used as a starting point for a custom application:
+		<ul>
+			<li><b>Standalone</b>: Uses the Application root to build full blown standalone qooxdoo applications</li>
+			<li><b>Inline</b>: Uses the Page root to build traditional web page based application which are embedded into isles in the classic HTML page.</li>
+		</ul>
+		<br>
+
+        <div class="row">
+		  <div class="col-xs-6" align="center"><img src="img/standalone.png" class="img-thumbnail"><br><br><a href="qxsimple/standalone.html" target="_blank" class="btn btn-primary" role="button">Run it!</a></div>
+		  <div class="col-xs-6" align="center"><img src="img/inline.png" class="img-thumbnail"><br><br><a href="qxsimple/inline.html" target="_blank" class="btn btn-primary" role="button">Run it!</a></div>
+		</div>
+        <br>
+        <h3>Documentation</h3>
+        Please visit the excellent <a href="http://qooxdoo.org/" target="_blank">Qooxdoo</a> website or specifically follow one of these links :<br><br>
+        <ul>
+        	<li><a href="http://demo.qooxdoo.org/current/widgetbrowser/" target="_blank">Widgetbrowser</a> to see all the available widgets and themes for qxDesktop	</li>
+        	<li><a href="http://demo.qooxdoo.org/current/demobrowser/" target="_blank">Demobrowser</a> that contains small samples and tests for most widgets and GUI features</li>
+        	<li><a href="http://demo.qooxdoo.org/current/apiviewer/" target="_blank">API Viewer</a></li>
+        	<li><a href="http://manual.qooxdoo.org/current/" target="_blank">Manual</a></li>
+        	
+        </ul>
+        <br>
+        
+        <h3>Build it yourself</h3>
+        If you want to make your own complete pre-build qooxdoo, here are the diffrent steps to follow :
+        <ul>
+        	<li>1. Go in the framework folder of the qooxdoo release</li>
+        	<li>2. Edit the config.json file</li>
+        	<li>3. Add "qxsimple" in the "export" part</li>
+        	<li>4. Add the following job (in the "jobs" part)</li>
+        	<li>4. Execute generate.py qxsimple</li>
+        	
+        </ul>
+        <br><br><br>
+        <!-- <p>qxSIMPLE is inspired by the <a target="_blank" href="https://code.google.com/p/qxbuild/">QxBuild</a> project (discontinued)</p> -->
+        
+        <!-- Site footer -->
+		<div class="footer">
+			<p>&copy; qxSKOPE 2014 - 2015</p>
+		</div>
+      </div>
+    </div>
+	<script>
+		document.body.innerHTML = document.body.innerHTML.replace(/qxsimpleVersion/g, '4.0.1');
+	</script>
+  </body>
+</html>
