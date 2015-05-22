@@ -21,7 +21,7 @@ Use the config.json file from qooxdoo framework.
 
     "compile-options": {
         "uris": {
-            "resource": "http://qxskope.appspot.com/qxsimple/${QOOXDOO_VERSION}/resource"
+            "resource": "http://adeliz.github.io/qxsimple/${QOOXDOO_VERSION}/resource"
         },
         "paths": {
             "file": "${QOOXDOO_VERSION}/script/qxsimple_${QOOXDOO_VERSION}.js",
