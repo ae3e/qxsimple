@@ -111,8 +111,75 @@
         
         <br>
         <h3>Advanced example</h3>
-        If you want to split your application code in multiple files, you can use the html file
+        If you want to split your application code in multiple files, you can write external javascript files and point to them in the html file with the script tag. Here is an example (<a href="examples/advanced.html">Run it!</a>):
+        <br><br>
+        index.html
+        <pre style="background:rgba(238,238,238,0.92);color:#000"><span style="color:#03c">&lt;!<span style="color:#03c"><span style="font-weight:700">DOCTYPE</span> html</span>></span>
+<span style="color:#03c">&lt;<span style="font-weight:700">html</span>></span>
+<span style="color:#03c">&lt;<span style="font-weight:700">head</span>></span>
+    &lt;<span style="font-weight:700">script</span> <span style="color:#36c;font-style:italic">type</span>=<span style="color:#093">"text/javascript"</span> <span style="color:#36c;font-style:italic">src</span>=<span style="color:#093">"http://adeliz.github.io/qxsimple/4.1/script/qxsimple.js"</span>>&lt;/<span style="font-weight:700">script</span>>
+    &lt;<span style="font-weight:700">script</span> <span style="color:#36c;font-style:italic">type</span>=<span style="color:#093">"text/javascript"</span> <span style="color:#36c;font-style:italic">src</span>=<span style="color:#093">"advanced/Application.js"</span>>&lt;/<span style="font-weight:700">script</span>>
+    &lt;<span style="font-weight:700">script</span> <span style="color:#36c;font-style:italic">type</span>=<span style="color:#093">"text/javascript"</span> <span style="color:#36c;font-style:italic">src</span>=<span style="color:#093">"advanced/Person.js"</span>>&lt;/<span style="font-weight:700">script</span>>
+    
+<span style="color:#03c">&lt;/<span style="font-weight:700">head</span>></span>
+<span style="color:#03c">&lt;/<span style="font-weight:700">html</span>></span>
+
+</pre>
+        advanced/Application.js
         
+        <pre style="background:rgba(238,238,238,0.92);color:#000"><span style="color:#06f;font-style:italic">//declare your main class name</span>
+qx.core.Environment.<span style="color:#33f;font-weight:700">add</span>(<span style="color:#093">"qx.application"</span>,<span style="color:#093">"advanced.Application"</span>);
+
+<span style="color:#06f;font-style:italic">//write your main class</span>
+qx.Class.define(<span style="color:#093">"advanced.Application"</span>,{
+  extend : qx.application.Standalone,
+
+  members :
+  {
+    <span style="color:#ff8000">main</span>: <span style="font-weight:700">function</span>()
+    {
+      this.base(arguments);
+
+        <span style="font-weight:700">var</span> president <span style="color:#00f">=</span> <span style="color:#00f">new</span> <span style="">advanced.Person</span>(<span style="color:#093">"Barack"</span>,<span style="color:#093">"Obama"</span>);
+        
+        <span style="color:#06f;font-style:italic">//create a button</span>
+        <span style="font-weight:700">var</span> btn1 <span style="color:#00f">=</span> <span style="color:#00f">new</span> <span style="">qx.ui</span>.<span style="color:#6782d3">form</span>.<span style="color:#33f;font-weight:700">Button</span>(president.getFullName(), <span style="color:#093">"../img/glyphicons_003_user.png"</span>);
+       <span style="color:#06f;font-style:italic">//add a listener on execution</span>
+        btn1.addListener(<span style="color:#093">"execute"</span>,<span style="font-weight:700">function</span>(e){
+            <span style="color:#33f;font-weight:700">alert</span>(<span style="color:#093">"I'm the president of USA"</span>);
+        });
+        <span style="color:#06f;font-style:italic">//add it to the application root</span>
+        this.getRoot().<span style="color:#33f;font-weight:700">add</span>(btn1, {left:<span style="color:#06f">100</span>,top:<span style="color:#06f">100</span>});
+    }
+  }
+});
+</pre>
+
+        advanced/Person.js
+        
+        <pre style="background:rgba(238,238,238,0.92);color:#000"><span style="color:#06f;font-style:italic">//write your model class</span>
+qx.Class.define(<span style="color:#093">"advanced.Person"</span>,{
+  extend : qx.core.<span style="color:#33f;font-weight:700">Object</span>,
+
+  <span style="color:#ff8000">construct</span> : <span style="font-weight:700">function</span>(firstName,lastName) {
+      this.base(arguments);
+      this.setFirstName(firstName);
+      this.setLastName(lastName);
+  },
+  
+  properties : {
+    firstName: { init: <span style="color:#093">"John"</span>, check: <span style="color:#093">"String"</span> },
+    lastName: { init: <span style="color:#093">"Doe"</span>, check: <span style="color:#093">"String"</span> }
+  },
+  
+  members :
+  {
+      <span style="color:#ff8000">getFullName</span> : <span style="font-weight:700">function</span>(){
+          <span style="color:#00f">return</span> this.getFirstName()<span style="color:#00f">+</span><span style="color:#093">" "</span><span style="color:#00f">+</span>this.getLastName();
+      }
+  }
+});
+</pre>
         <br>
         <h3>Theming</h3>
         To change the theme of your application, just add the following code at the beginning of the main function in your application class.
