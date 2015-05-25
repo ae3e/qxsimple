@@ -12,11 +12,13 @@ Visit the webpage [http://adeliz.github.io/qxsimple/](http://adeliz.github.io/qx
 
 ## Build process
 To build qxSIMPLE, follow these steps :
+
 1. Dowload the latest qooxdoo release
 2. Go in the framework folder
 3. Edit the config.json file
 4. Add "qxsimple" in the "export" part
-5. Add the following job (in the "jobs" part)
+5. Add the following jobs (in the "jobs" part)
+6. Execute generate.py qxsimple
 
 ```javascript
 "qxsimple-cdn": {
@@ -104,7 +106,5 @@ To build qxSIMPLE, follow these steps :
         "qxsimple-local",
         "qxsimple-cdn"
     ]
-},
+}
 ```
-
-6. Execute generate.py qxsimple
