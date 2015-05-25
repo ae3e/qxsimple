@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="script/qxsimple.js"></script>
+    <script type="text/javascript">
+        //declare your main class name
+        qx.core.Environment.add("qx.application","qxsimple.Application");
+        
+        //write your main class
+        qx.Class.define("qxsimple.Application",{
+          extend : qx.application.Standalone,
+
+          members :
+          {
+            main: function()
+            {
+              this.base(arguments);
+
+              qx.theme.manager.Meta.getInstance().setTheme(qx.theme.Indigo);
+                //create a button
+                var btn1 = new qx.ui.form.Button("Button A", "resource/qx/icon/Oxygen/16/actions/view-refresh.png");
+               //add a listener on execution
+                btn1.addListener("execute",function(e){
+                    alert("Hello!");
+                });
+               
+                var selectBox = new qx.ui.form.SelectBox();
+                for (var i=0; i<30; i++)
+                {
+                  var tempItem = new qx.ui.form.ListItem("Item " + (i+1));
+                  selectBox.add(tempItem);
+
+                  // select sixth item
+                  if (i == 5) {
+                    selectBox.setSelection([tempItem]);
+                  }
+                }
+                //add it to the application root
+                this.getRoot().add(selectBox, {left:100,top:100});
+            }
+          }
+        });
+    </script>
+</head>
+</html>
