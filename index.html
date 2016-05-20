@@ -18,7 +18,11 @@
               this.base(arguments);
 
               qx.theme.manager.Meta.getInstance().setTheme(qx.theme.Indigo);
-                //create a button
+                
+            	//create label
+	            var label = new qx.ui.basic.Label("Qooxdoo version "+qx.core.Environment.get("qx.version"));
+
+	            //create a button
                 var btn1 = new qx.ui.form.Button("Button A", "resource/qx/icon/Oxygen/16/actions/view-refresh.png");
                //add a listener on execution
                 btn1.addListener("execute",function(e){
@@ -92,6 +96,7 @@
                 var container = new qx.ui.container.Composite(vBox);
 
                 //add widgets to the container
+                container.add(label);
                 container.add(btn1);
                 container.add(selectBox);
                 container.add(tree);

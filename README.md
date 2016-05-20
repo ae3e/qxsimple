@@ -21,7 +21,7 @@ To build qxSIMPLE, follow these steps :
 6. Execute generate.py qxsimple
 
 ```javascript
-"qxsimple-cdn": {
+"qxsimple": {
     "library": [
         {
             "manifest": "Manifest.json"
@@ -34,54 +34,14 @@ To build qxSIMPLE, follow these steps :
     "exclude": ["qx.test.*"],
 
     "environment": {
-        "qx.debug": true,
-        "qx.aspects": false
-    },
-
-    "compile-options": {
-        "uris": {
-            "resource": "http://adeliz.github.io/qxsimple/${QOOXDOO_VERSION}/resource"
-        },
-        "paths": {
-            "file": "${QOOXDOO_VERSION}/script/qxsimple_${QOOXDOO_VERSION}.js",
-            "app-root": "./${QOOXDOO_VERSION}"
-        },
-        "code": {
-            "format": true,
-            "except": [],
-            "optimize": ["basecalls", "variables", "privates", "strings", "whitespace"]
-        }
-    },
-
-    "compile": {
-        "type": "build"
-    },
-
-    "copy-resources": {
-        "target": "${QOOXDOO_VERSION}"
-    }
-},
-
-"qxsimple-local": {
-    "library": [
-        {
-            "manifest": "Manifest.json"
-        }
-    ],
-
-    "extend": [ "cache" ],
-
-    "include": ["qx.*"],
-    "exclude": ["qx.test.*"],
-
-    "environment": {
+    	"qx.version" : "${QOOXDOO_VERSION}",
         "qx.debug": true,
         "qx.aspects": false
     },
 
     "compile-options": {
         "paths": {
-            "file": "qxsimple_${QOOXDOO_VERSION}/script/qxsimple_${QOOXDOO_VERSION}.js",
+            "file": "qxsimple_${QOOXDOO_VERSION}/script/qxsimple.js",
             "app-root": "./qxsimple_${QOOXDOO_VERSION}",
             "gzip": true
         },
@@ -99,12 +59,5 @@ To build qxSIMPLE, follow these steps :
     "copy-resources": {
         "target": "qxsimple_${QOOXDOO_VERSION}"
     }
-},
-
-"qxsimple": {
-    "run": [
-        "qxsimple-local",
-        "qxsimple-cdn"
-    ]
 }
 ```
